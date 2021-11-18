@@ -11,3 +11,65 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.link-color {
+  color: whitesmoke !important;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.nav-link {
+  color: whitesmoke !important;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.icon2 {
+  margin-right: 0.5rem;
+  color: orange;
+}
+
+#video {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  height: 100vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.h1-dou {
+  color: white;
+  text-shadow: 2px 2px 6px #000000;
+  margin: 8% 5%;
+  height: 64vh;
+}
+
+h1, h2 {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.button-home {
+  background-color: none !important;
+  border: 2px solid white;
+  color: white;
+  text-shadow: 2px 2px 6px #000000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.button-home:hover {
+  background-color: orange;
+  color: whitesmoke;
+}
+
+.background_carousel {
+  background-color: black ;
+}
+
+
