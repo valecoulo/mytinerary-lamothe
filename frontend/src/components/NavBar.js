@@ -3,7 +3,7 @@ import { Container, Navbar, NavDropdown, Nav } from 'react-bootstrap'
 
 const NavBar = () => {
     return (
-  <Navbar bg="dark" expand="lg">
+  <Navbar bg="dark" className="sticky-top" expand="lg">
         <Container>
           <div className="d-flex">
           <img className="rounded-circle img-fluid ms-3" width="45px" src="./assets/user_picture.jpeg" alt="user_pic"/>
