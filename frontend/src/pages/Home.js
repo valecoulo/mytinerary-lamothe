@@ -1,11 +1,14 @@
 import React from "react"
 import {Button} from 'react-bootstrap'
+import CarouselCities from "../components/CarouselCities";
+
 
 class Home extends React.Component {
     render() {
         const video = './assets/video_home.mp4'
         return (
-            <div className='d-flex justify-content-end'>
+            <div>
+            <div className='d-flex justify-content-end container-home'>
                 <div className='h1-dou'>
                     <video autoPlay loop muted id="video">
                         <source src={video} type="video/mp4" />
@@ -14,6 +17,9 @@ class Home extends React.Component {
                     <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
                     <Button variant="" className="button-home">Click Here!<i className="fas fa-plane-departure ms-1"></i></Button>{' '}
                 </div>
+            </div>
+            
+            <CarouselCities />
             </div>
         )
     }

@@ -90,4 +90,136 @@ footer ul li a {
   color: white;
 }
 
+.carousel-container {
+  width: 80vw;  
+  padding-bottom: 3%;
+}
+
+.car-cont {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+.swip-slid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.user-image {
+  width: 60vw;
+  height: 60vh;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.h3-city {
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+  color: orange;
+}
+
+.swiper-button-prev:after, .swiper-rtl .swiper-button-prev:after {
+  color: rgb(58, 56, 53);
+}
+
+.swiper-pagination-bullet {
+  color: orange;
+}
+
+.swiper-scrollbar-drag {
+  color: white;
+  background-color: orange;
+}
+
+.navbar-toggler {
+  background-color: orange;
+}
+
+
+/* Media Queries */
+
+@media (min-width: 780px) {
+  .carousel-container {
+      width: 95vw;
+  }
+  .user-image {
+      width: 40vw;
+      height: 40vh;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+  }
+}
+
+@media (min-width: 960px) {
+  .carousel-container {
+      width: 90vw;
+  }
+  .user-image {
+      width: 40vw;
+      height: 40vh;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel-container {
+      width: 80vw;
+      margin: 0 0 2rem 0;
+  }
+  .user-image {
+      width: 35vw;
+      height: 35vh;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+  }
+}
+
+
+.user-image img {
+  width: 100%;
+  height: 100%;
+}
+
+
+@media (max-width: 700px) {
+  #video {
+    display: none;
+  }
+  .container-home {
+    background-image: url('../src/assets/background_image.jpeg');
+    background-size: cover;
+  }
+}
 
