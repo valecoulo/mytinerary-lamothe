@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
@@ -23,8 +24,8 @@ code {
 }
 
 .nav-link:hover {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.384);
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .icon2 {
@@ -99,7 +100,7 @@ h1, h2 {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  padding-top: 30%;
+  padding-top: 3rem;
   font-weight: bold;
   color: white;
 }
@@ -193,6 +194,11 @@ footer ul li a {
   background-color: orange;
 }
 
+.ul-footer li a:hover {
+  cursor: pointer;
+  color: orange;
+}
+
 
 /* Media Queries */
 
@@ -266,6 +272,15 @@ footer ul li a {
     background-image: url('../src/assets/background_image.jpeg');
     background-size: cover;
     background-attachment: fixed;
+  }
+
+  .top-footer {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .top-footer p {
+    display: none;
   }
 }
 

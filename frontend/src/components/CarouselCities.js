@@ -18,7 +18,7 @@ const firstSlide = [
   {
     id: 2,
     city: "London",
-    country: "France",
+    country: "England",
     src: require("../assets/london.jpeg").default,
   },
   {

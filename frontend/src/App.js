@@ -3,7 +3,6 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Footer from "./components/Footer"
 import Cities from './pages/Cities'
-import { render } from "react-dom";
 import {
   BrowserRouter,
   Routes,
