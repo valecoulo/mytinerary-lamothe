@@ -1,5 +1,6 @@
 import React from 'react'   
 import { Container, Navbar, NavDropdown, Nav } from 'react-bootstrap'
+import { Outlet, NavLink } from "react-router-dom";
 
 const NavBar = () => {
     return (
@@ -17,8 +18,8 @@ const NavBar = () => {
               <div className="d-flex">
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link className="link-color" href="#home"><i className="fas fa-home icon2"></i>Home</Nav.Link>
-                <Nav.Link className="link-color" href="#link"><i className="fas fa-plane-departure icon2"></i>Cities</Nav.Link>
+              <NavLink to="/" className="link-color text-decoration-none nav-link"><i className="fas fa-home icon2"></i>Home</NavLink>
+               <NavLink to="/cities" className="link-color text-decoration-none nav-link"><i className="fas fa-plane-departure icon2"></i>Cities</NavLink>
               </Nav>
             </Navbar.Collapse>
               </div>
