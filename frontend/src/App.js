@@ -19,6 +19,7 @@ function App() {
         <Route path="/cities" element={<Cities />} />
       </Routes>
         <Footer />
+
     </BrowserRouter>
   );
 }

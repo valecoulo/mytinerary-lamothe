@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Navbar, NavDropdown, Nav } from 'react-bootstrap'
 import {  NavLink } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
     return (
   <Navbar bg="dark" className="sticky-top" expand="lg">
         <Container>

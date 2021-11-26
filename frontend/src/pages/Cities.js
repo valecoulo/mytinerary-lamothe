@@ -1,21 +1,32 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 
-const Cities = () => {
+class Cities extends React.Component {
+    state = {
+        cities: []
+    }
 
-    const [cities, setCities] = useState([])
-
-    useEffect(() => {
+    componentDidMount() {
         fetch('http://localhost:4000/api/cities')
         .then(res => res.json())
-        .then(data => setCities(data.response.cities))
-        .catch()
-    }, []);
+        .then(data => this.setState({cities: data.response.cities}))
+    }
 
-    return(
-        <div>
-            <h1 className="text-light">{cities}</h1>
-        </div>
-    )
+    render() {
+        const {cities} = this.state
+        return(
+            <div>
+                {cities.map((city) => {
+              return (
+                <div className="slide-content" key={city.id}>
+                  <div className="user-image" style={{backgroundImage: `URL(${city.src})`, backgroundSize: 'cover', backgroundPosition: 'bottom'}} >
+                    <h3 className="text-light h3-city">{city.city}</h3>  
+                  </div>  
+                </div>
+              );
+            })}
+            </div>
+        )
+    }
 }
 
 export default Cities

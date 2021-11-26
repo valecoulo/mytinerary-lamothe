@@ -2,6 +2,8 @@ import React from "react"
 import {Button} from 'react-bootstrap'
 import CarouselCities from "../components/CarouselCities";
 import {Link} from 'react-router-dom'
+import Slides from '../components/Slides'
+
 
 class Home extends React.Component {
     render() {
@@ -20,8 +22,7 @@ class Home extends React.Component {
                     </Link>{' '}
                 </div>
             </div>
-            
-            <CarouselCities />
+            <Slides/>
             </div>
         )
     }

@@ -172,6 +172,14 @@ footer ul li a {
 
 .h3-city {
   font-family: 'Quicksand', sans-serif;
+  background-color: rgba(0, 0, 0, 0.466);
+  width: 90%;
+  text-align: center;
+  border-radius: 2%;
+  -webkit-border-radius: 2%;
+  -moz-border-radius: 2%;
+  -ms-border-radius: 2%;
+  -o-border-radius: 2%;
 }
 
 
