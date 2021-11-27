@@ -8,6 +8,9 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import SignIn from './pages/SignIn'
+import SignUp from './pages/signUp'
+
 
 
 function App() {
@@ -17,6 +20,9 @@ function App() {
       <Routes>
         <Route path="/"  element={<Home />} exact />
         <Route path="/cities" element={<Cities />} />
+        <Route path="/signIn" element={<SignIn />} />
+        <Route path="/signUp" element={<SignUp />} />
+
       </Routes>
         <Footer />
 

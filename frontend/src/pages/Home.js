@@ -6,6 +6,11 @@ import Slides from '../components/Slides'
 
 
 class Home extends React.Component {
+
+    componentDidMount(){
+        console.log('props from Home', this.props)
+    }
+
     render() {
         const video = './assets/video_home.mp4'
         return (

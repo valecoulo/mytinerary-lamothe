@@ -12,16 +12,16 @@ const Footer = () => {
             <div>
                 <Link to="/">Home</Link>
                 <Link to="/Cities">Cities</Link>
-                <a href="#Sign Up">Sign Up</a>
-                <a href="#Sign In">Sign In</a>
+                <Link to="/signUp" className="text-decoration-none">Sign Up</Link>
+                <Link to="/signIn" className="text-decoration-none">Sign In</Link>
             </div>
             </div>
             <footer className="footer-container text-light" style={{backgroundColor:"black"}}>
                 <div className="footer-items col-12">
                     <ul className="d-flex flex-wrap ul-footer">
-                        <li><a href="https://www.facebook.com"><img className="me-1" src='./assets/facebook.png' alt='facebook'/>Facebook</a></li> 
-                        <li><a href="https://wa.me/+5491164917988/"><img className="me-1" src='./assets/whatsapp.png' alt="whatsapp"/>Whatsapp</a></li>
-                        <li><a href="https://www.instragram.com"><img className="me-1" src="./assets/instagram.png" alt="instagram"/>Instagram</a></li>
+                        <li><a href="https://www.facebook.com"><img className="me-1" src='https://i.imgur.com/lu2AkH4.png' alt='facebook'/>Facebook</a></li> 
+                        <li><a href="https://wa.me/+5491164917988/"><img className="me-1" src='https://i.imgur.com/mKlPUpR.png' alt="whatsapp"/>Whatsapp</a></li>
+                        <li><a href="https://www.instragram.com"><img className="me-1" src="https://i.imgur.com/mrhyyvq.png" alt="instagram"/>Instagram</a></li>
                     </ul>
                 </div>
                 <div class="footer-items col-12 bg-dark">

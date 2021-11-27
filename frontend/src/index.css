@@ -148,6 +148,12 @@ footer ul li a {
   gap: 1rem;
   margin: 1rem 0;
 }
+
+.cities-spinner {
+  position: absolute;
+  bottom: 100px;
+}
+
 .user-image {
   width: 60vw;
   height: 60vh;
@@ -159,6 +165,7 @@ footer ul li a {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  position: relative;
 }
 
 .user-image:hover {
