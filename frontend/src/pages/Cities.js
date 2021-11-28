@@ -1,5 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import axios from 'axios'
 class Cities extends React.Component {
     state = {
         cities: []
@@ -15,9 +16,8 @@ class Cities extends React.Component {
   }
 
     componentDidMount() {
-        fetch('http://localhost:4000/api/cities')
-        .then(res => res.json())
-        .then(data => this.setState({cities: data.response}))
+        axios.get('http://localhost:4000/api/cities')
+        .then(data => this.setState({cities: data.data.response}))
     }
 
 
@@ -31,10 +31,10 @@ class Cities extends React.Component {
                     </div> )
                 :  (cities.map((city) => {
                       return (
-                        <NavLink className="text-decoration-none" to={`/city/${city.id}`}>
-                          <div className="slide-content" onClick={() => console.log(city.id)} key={city.id}>
-                            <div className="user-image" style={{backgroundImage: `URL(${city.src})`, backgroundSize: 'cover', backgroundPosition: 'bottom', width: '50vw', maxHeight: '40vh', margin: '3% 0 3% 0'}} >
-                              <h3 className="text-light h3-city">{city.city}</h3>  
+                        <NavLink className="text-decoration-none" to={`/city/${city._id}`}>
+                          <div className="slide-content" onClick={() => console.log(city._id)} key={city.id}>
+                            <div className="user-image" style={{backgroundImage: `URL(${city.image})`, backgroundSize: 'cover', backgroundPosition: 'bottom', width: '50vw', maxHeight: '40vh', margin: '3% 0 3% 0'}} >
+                              <h3 className="text-light h3-city">{city.cityName}</h3>  
                             </div>  
                           </div>
                         </NavLink>

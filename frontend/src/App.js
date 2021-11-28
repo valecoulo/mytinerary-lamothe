@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import SignIn from './pages/SignIn'
 import SignUp from './pages/signUp'
+import CityPage from './pages/CityPage'
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/cities" element={<Cities />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
+        <Route path="/city/:id" element={<CityPage />} />
 
       </Routes>
         <Footer />
