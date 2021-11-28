@@ -216,6 +216,11 @@ footer ul li a {
   color: orange;
 }
 
+.btn-outline-success {
+  color: orange;
+  border-color: rgba(255, 166, 0, 0.637);
+}
+
 
 /* Media Queries */
 

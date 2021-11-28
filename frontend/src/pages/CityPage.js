@@ -33,6 +33,7 @@ import axios from 'axios'
 
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import BackToCIties from '../components/BackToCities';
 
 
 const CityPage = (props) => {
@@ -53,10 +54,15 @@ const CityPage = (props) => {
     }
 
     
-    return (    
-        <div>
-            <h1 style={{color: 'white'}}>{city.cityName}</h1>
-            <img src={city.image} alt="City"/>
+    return (
+        <div className="container-fluid d-flex flex-column align-items-center gap-5">
+            {/* (<div class="spinner-border text-warning mt-5" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>) */}
+             (<h1 className="text-center mt-4" style={{color: 'white'}}>{city.cityName}</h1>
+            <img className="img-fluid rounded-2 w-50 d-flex" src={city.image} alt="City"/>
+            <h2 className="text-light mb-5 mt-5">UNDER CONSTRUCTION</h2>
+            <BackToCIties/>)
         </div>
     )
 }
