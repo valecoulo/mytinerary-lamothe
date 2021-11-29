@@ -134,13 +134,13 @@ const City = require('../models/City');
           }
           res.json({response: city})
         },
-        modfiedCity: async(req, res) => {
+        modifiedCity: async(req, res) => {
         let id = req.params.id
         let city = req.body
         let actualizado
         console.log(city)
         try{
-            actualizado = await City.findOneAndUpdate({_id:id},producto,{new:true})
+            actualizado = await City.findOneAndUpdate({_id:id},city,{new:true})
             console.log(actualizado)
         }catch(error){
             console.log(error)

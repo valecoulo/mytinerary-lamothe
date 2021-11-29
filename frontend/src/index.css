@@ -221,6 +221,21 @@ footer ul li a {
   border-color: rgba(255, 166, 0, 0.637);
 }
 
+.search input:focus {
+  color: white;
+}
+
+.search {
+  color: white;
+  border-color: orange;
+}
+
+.form-control:focus {
+  color: white;
+  border-color: rgba(255, 166, 0, 0.76);
+  box-shadow: none !important;
+}
+
 
 /* Media Queries */
 
