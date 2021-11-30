@@ -11,12 +11,14 @@ import {
 import SignIn from './pages/SignIn'
 import SignUp from './pages/signUp'
 import CityPage from './pages/CityPage'
+import ScrollToTop from "./components/ScrollToTop";
 
 
 
 function App() {
   return (
     <BrowserRouter>
+        <ScrollToTop/>
         <NavBar/>
       <Routes>
         <Route path="/"  element={<Home />} exact />

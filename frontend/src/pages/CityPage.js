@@ -48,7 +48,13 @@ const CityPage = (props) => {
     const requestCity = async () => {
         console.log('props from funcional City comp', props)
         console.log('params', params.id)
-        const pedido = await axios.get('http://localhost:4000/api/city/' + params.id)
+        try{
+        var pedido = await axios.get('http://localhost:4000/api/city/' + params.id)
+        let spinner = document.querySelector('#spinner')
+        spinner.style.display= "none"
+        } catch {
+        
+        }
         console.log('pedido API!!!!!!!!:' , pedido)
         setCity(pedido.data.response)
     }
@@ -56,9 +62,9 @@ const CityPage = (props) => {
     
     return (
         <div className="container-fluid d-flex flex-column align-items-center gap-5">
-            {/* (<div class="spinner-border text-warning mt-5" role="status">
+             (<div class="spinner-border text-warning mt-5" id="spinner" role="status">
                 <span class="visually-hidden">Loading...</span>
-            </div>) */}
+            </div>) 
              (<h1 className="text-center mt-4" style={{color: 'white'}}>{city.cityName}</h1>
             <img className="img-fluid rounded-2 w-50 d-flex" src={city.image} alt="City"/>
             <h2 className="text-light mb-5 mt-5">UNDER CONSTRUCTION</h2>

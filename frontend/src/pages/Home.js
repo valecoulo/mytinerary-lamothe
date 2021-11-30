@@ -2,6 +2,7 @@ import React from "react"
 import {Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import Slides from '../components/Slides'
+import BackToCIties from "../components/BackToCities"
 
 
 class Home extends React.Component {
@@ -21,9 +22,14 @@ class Home extends React.Component {
                     </video>
                     <h1>Mytinerary!</h1>
                     <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
-                    <Link className="text-decoration-none" to ="/cities">
+                    {/* <Link className="text-decoration-none" to ="/cities">
                     <Button variant="" className="button-home">Click Here!<i className="fas fa-plane-departure ms-1"></i></Button>
-                    </Link>{' '}
+                    </Link>{' '} */}
+                <div class="buttons">
+                    <div class="container-button">
+                    <Link to="/cities" class="btn effect04" data-sm-link-text="CITIES!"><span>JUST CLICK IT</span></Link>
+                    </div>
+                    </div>
                 </div>
             </div>
             <Slides/>

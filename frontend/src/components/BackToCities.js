@@ -7,7 +7,8 @@ import {Button} from 'react-bootstrap';
     return (
         <div>
             <Link className="text-decoration-none" to ="/cities">
-                    <Button variant="" className="button-home mb-5 mt-5">Back to Cities<i className="fas fa-plane-departure ms-1"></i></Button>
+                    {/* <Button variant="" className="button-home mb-5 mt-5">Back to Cities<i className="fas fa-plane-departure ms-1"></i></Button> */}
+                    <span><i></i></span>
             </Link>{' '}
         </div>
     )
