@@ -107,8 +107,6 @@ const City = require('../models/City');
         res.json({ response: cities })
         },
         oneCity: async(req, res) => {
-          console.log('entre a la city pa')
-          console.log(req.params)
             let city
             const id = req.params.id        
             try{
@@ -119,6 +117,7 @@ const City = require('../models/City');
             res.json({response:city})
         },
         newCity: (req, res) => {
+          
             const {cityName, country, image} = req.body
             
             new City({cityName, country, image}).save()

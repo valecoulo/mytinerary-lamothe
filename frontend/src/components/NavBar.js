@@ -7,7 +7,7 @@ const NavBar = (props) => {
   <Navbar bg="dark" className="sticky-top" expand="lg">
         <Container>
           <div className="d-flex">
-          <img className="rounded-circle img-fluid ms-3" width="45px" src="https://i.imgur.com/RAW7bAn.jpg" alt="user_pic"/>
+          <img className="rounded-circle img-fluid ms-3" width="45px" src="https://i.imgur.com/iDR677a.png" alt="user_pic"/>
           <NavDropdown id="basic-nav-dropdown">
                  <Link to="/signIn" className="text-decoration-none"> <NavDropdown.Item href="#action/3.1">Sign In</NavDropdown.Item> </Link>
                   <NavDropdown.Divider />

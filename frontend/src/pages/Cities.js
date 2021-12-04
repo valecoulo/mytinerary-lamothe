@@ -1,46 +1,35 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import axios from 'axios';
 import Search from '../components/Search'
+import { connect } from 'react-redux'
+import citiesActions from '../redux/actions/citiesActions';
 class Cities extends React.Component {
-    state = {
-        cities: [],
-        citiesFilteredToRender: []
-    }
 
-
-
-    componentDidMount() {
-        axios.get('http://localhost:4000/api/cities')
-        .then(data => this.setState({cities: data.data.response, citiesFilteredToRender: data.data.response}))
-    }
-
-    
+  componentDidMount () {
+   this.props.getCities()
+  }
+  
     
     render() {
 
-      const filterCities = (value) => {
-        // this.setState({searchField: value.target.value.toLowerCase().trim()})
-        const filteredCities = cities.filter(city => {
-          return  city.cityName.toLowerCase().startsWith(value.target.value.toLowerCase().trim())
-          })
-        this.setState({citiesFilteredToRender : filteredCities})
-      }
+      // const filterCities = (value) => {
+      //   const filteredCities = this.props.cities.filter(city => {
+      //     return  city.cityName.toLowerCase().startsWith(value.target.value.toLowerCase().trim())
+      //     })
+      //   this.setState({citiesFilteredToRender : filteredCities})
+      // }
+      const {cities, citiesFiltered } = this.props;
 
-        // const {cities, searchField} = this.state
-        
-       
-        const {cities} = this.state
         return(
         <div className="d-flex flex-column align-items-center">
           <Search placeholder="Enter a city... " 
-          handleChange={e => filterCities(e)}/>
+          handleChange={e => this.props.getFiltered(cities, e.target.value)}/>
                 {cities.length === 0
-                  ?  (<div class="spinner-border text-warning" role="status">
+                  ?  (<div class="spinner-border text-warning m-5" role="status">
                           <span class="visually-hidden">Loading...</span>
                       </div> )
-                  : (this.state.citiesFilteredToRender.length > 0
-                      ? this.state.citiesFilteredToRender.map((city) => {
+                  : (citiesFiltered.length > 0
+                      ? citiesFiltered.map((city) => {
                         return (
                               <NavLink className="text-decoration-none" to={`/city/${city._id}`}>
                                  <div className="slide-content" onClick={() => console.log(city._id)} key={city.id}>
@@ -52,16 +41,21 @@ class Cities extends React.Component {
                       } )
                   : <h1 className="text-light">NO CITIES FOUND</h1>)}
                           </div>
+
         )
     }
 }
 
-// if(filteredCities.length > 0) {
-//   filteredCities
-// } else if(cities > 0) {
-//   cities
-// } else if(filteredCities != filteredCities.cityName) {
-//   <p>No cities founded</p>
-// }
+const mapStateToProps = state => {
+  return {
+      cities: state.cities.allCities,
+      citiesFiltered: state.cities.citiesFiltered
+  }
+}
 
-export default Cities
+const mapDispatchToProps = {
+  getCities: citiesActions.getCities,
+  getFiltered: citiesActions.getFiltered
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cities)
