@@ -4,7 +4,6 @@ import itinerariesReducer from './itinerariesReducer';
 
 const rootReducer = combineReducers({
     cities: citiesReducer,
-    citiesToRender: citiesReducer,
     itineraries: itinerariesReducer
 })
 

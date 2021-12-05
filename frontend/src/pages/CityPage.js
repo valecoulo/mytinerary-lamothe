@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import BackToCIties from '../components/BackToCities';
 import { connect } from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions';
+import itinerariesAction from '../redux/actions/itinerariesActions';
 
 
 const CityPage = (props) => {
@@ -11,7 +12,10 @@ const CityPage = (props) => {
 
      useEffect(() => {
         props.getOneCity(params.id)
+        props.getOneItinerary(params.id)
     }, [])
+
+    console.log("objeto a imprimir:",props.itinerary)
 
     return (
         <div className="background_city">
@@ -43,14 +47,16 @@ const CityPage = (props) => {
 
 const mapStateToProps = state => {
     return {
-        oneCity: state.cities.oneCity
+        oneCity: state.cities.oneCity,
+        itinerary: state.itineraries.oneItinerary
     }
   }
   
 
 
 const mapDispatchToProps = {
-    getOneCity: citiesActions.getOneCity
+    getOneCity: citiesActions.getOneCity,
+    getOneItinerary: itinerariesAction.getOneItinerary
   }
 
   export default connect(mapStateToProps, mapDispatchToProps)(CityPage)

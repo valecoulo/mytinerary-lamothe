@@ -1,4 +1,4 @@
-const citiesReducer = (state= {oneItinerary: {}}, action) => {
+const citiesReducer = (state= {oneItinerary: []}, action) => {
     switch(action.type) {
       case 'ONE_ITINERARY':
          return {

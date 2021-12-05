@@ -54,6 +54,15 @@ const itinerariesController = {
         console.log(error)
     }
     res.json({success:actualizado ? true : false})
+    },
+    getItineraryByCity: async (req, res) => {
+      try {
+        const cityItinerary = await Itinerary.find({city: req.params.id})
+        console.log(cityItinerary);
+        res.json({ response: cityItinerary })
+      } catch (err) {
+        console.log(err);
+      }
     }
 }
 
