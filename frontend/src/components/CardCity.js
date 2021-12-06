@@ -20,12 +20,12 @@ const CardCity = (props) => {
               <div class="card__header-text">
                 <h3 class="card__title fs-1">{props.itineraries.authorName}</h3>
                 <span class="italic-shadow fs-4">duration: {("⏱️").repeat(props.itineraries.duration)}</span>
+                <span className="italic-shadow fs-4">Price: {("💸").repeat(props.itineraries.price)}</span>
+                <span className="italic-shadow fs-4">Likes: {("❤️") + props.itineraries.likes}</span>
+                <span className="span-hashtag">{props.itineraries.hashtags.map(hash => <span>{hash}</span>)}</span>
               </div>
-              <span className="italic-shadow fs-4">Price: {("💸").repeat(props.itineraries.price)}</span>
-              <span className="italic-shadow fs-4">Likes: {("❤️") + props.itineraries.likes}</span>
-              <span>{props.itineraries.hashtags.map(hash => <span>{hash}</span>)}</span>
             </div>
-            <h2 class="card__description">UNDER CONSTRUCTION</h2>
+            <h2 class="card__description mt-5">UNDER CONSTRUCTION</h2>
           </div>
         </div>
       </li>

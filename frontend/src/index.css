@@ -591,6 +591,21 @@ span i:hover{
   justify-content: center;
 }
 
+.h2-no-iti {
+  margin: 10% 10%;
+  color: orange;
+  background-color: rgba(255, 255, 255, 0.137);
+  padding: 1%;
+  text-align: center;
+}
+
+.span-hashtag {
+  font-size: 1.5rem;
+}
+
+.card__image {
+  height: 90% !important;
+}
 /* Media Queries */
 
 @media (min-width: 780px) {
@@ -687,6 +702,10 @@ span i:hover{
     margin: 15% 0 3% 0;
     width: 85vw;
     height: 50vh;
+  }
+
+  .span-hashtag {
+    display: none;
   }
 
 }

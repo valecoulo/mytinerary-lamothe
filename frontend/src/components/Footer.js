@@ -26,7 +26,7 @@ const Footer = () => {
                 </div>
                 <div class="footer-items col-12 bg-dark">
         </div>
-       <p className="d-flex justify-content-center"> Copyright © Valentin Lamothe | Mytinerary | MindHub | 2021 </p>
+       <p className="d-flex justify-content-center text-center"> Copyright © Valentin Lamothe | Mytinerary | MindHub | 2021 </p>
             </footer>
         </div>
     )

@@ -44,7 +44,7 @@ const CityPage = (props) => {
             props.itineraries.map(itinerary => {
             return <CardCity itineraries={itinerary} />
             })
-               : <h2 className="text-light d-flex justify-content-center m-5">This city doesn't have an itineraries</h2>}
+               : <h2 className="text-light d-flex justify-content-center h2-no-iti">This city doesn't have itineraries</h2>}
 
             <BackToCIties/>)
         </div>
