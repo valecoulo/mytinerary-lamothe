@@ -585,6 +585,12 @@ span i:hover{
 
 }
 
+.card__description {
+  display: flex !important;
+  color: black;
+  justify-content: center;
+}
+
 /* Media Queries */
 
 @media (min-width: 780px) {
@@ -603,6 +609,7 @@ span i:hover{
       justify-content: center;
       align-items: flex-end;
   }
+
 }
 
 @media (min-width: 960px) {

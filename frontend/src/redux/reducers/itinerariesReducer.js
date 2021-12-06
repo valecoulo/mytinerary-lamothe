@@ -1,9 +1,9 @@
-const citiesReducer = (state= {oneItinerary: []}, action) => {
+const citiesReducer = (state= {itineraries: []}, action) => {
     switch(action.type) {
       case 'ONE_ITINERARY':
          return {
             ...state,
-            oneItinerary: action.payload
+            itineraries: action.payload
          }
        default:
          return state

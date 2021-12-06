@@ -15,7 +15,8 @@ const CityPage = (props) => {
         props.getOneItinerary(params.id)
     }, [])
 
-    console.log("objeto a imprimir:",props.itinerary)
+
+    console.log("objeto a imprimir:",props.itineraries)
 
     return (
         <div className="background_city">
@@ -33,12 +34,18 @@ const CityPage = (props) => {
                 </div>
             </div> )
             }
+            
             {/* <h2 className="text-light mb-5 mt-5">UNDER CONSTRUCTION</h2> */}
 
 
         <h2 className="mt-5 text-light text-capitalize text-truncate">Join us in this wonderfull adventure</h2>
         </div>
-            <CardCity/>
+            { props.itineraries.length > 0 ?
+            props.itineraries.map(itinerary => {
+            return <CardCity itineraries={itinerary} />
+            })
+               : <h2 className="text-light d-flex justify-content-center m-5">This city doesn't have an itineraries</h2>}
+
             <BackToCIties/>)
         </div>
 
@@ -48,12 +55,10 @@ const CityPage = (props) => {
 const mapStateToProps = state => {
     return {
         oneCity: state.cities.oneCity,
-        itinerary: state.itineraries.oneItinerary
+        itineraries: state.itineraries.itineraries
     }
   }
   
-
-
 const mapDispatchToProps = {
     getOneCity: citiesActions.getOneCity,
     getOneItinerary: itinerariesAction.getOneItinerary

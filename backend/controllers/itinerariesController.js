@@ -27,9 +27,9 @@ const itinerariesController = {
     },
     newItinerary: (req, res) => {
       
-        const { authorName, authorImg, price, duration, city } = req.body
+        const { authorName, authorImg, price, duration, city, likes, hashtags } = req.body
         
-        new Itinerary({ authorName, authorImg, price , duration, city }).save()
+        new Itinerary({ authorName, authorImg, price , duration, city, likes, hashtags }).save()
         .then(() => res.json({success: true}))
     },
     deleteItinerary: async (req, res) => {

@@ -9,15 +9,8 @@ class Cities extends React.Component {
    this.props.getCities()
   }
   
-    
     render() {
 
-      // const filterCities = (value) => {
-      //   const filteredCities = this.props.cities.filter(city => {
-      //     return  city.cityName.toLowerCase().startsWith(value.target.value.toLowerCase().trim())
-      //     })
-      //   this.setState({citiesFilteredToRender : filteredCities})
-      // }
       const {cities, citiesFiltered } = this.props;
 
         return(
@@ -41,7 +34,6 @@ class Cities extends React.Component {
                       } )
                   : <h1 className="text-light">NO CITIES FOUND</h1>)}
                           </div>
-
         )
     }
 }
