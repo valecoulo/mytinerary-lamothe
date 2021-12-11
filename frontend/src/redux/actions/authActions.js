@@ -1,16 +1,31 @@
-import axios from 'axios';
+import axios from "axios" 
 
 const authActions = {
-
-    userRegister: (userName, password) => {
-        return async(dispatch, getState) => {
-            try {
-                const user = await axios.post('http://localhost:4000/api/signUp', {userName, password})
-                dispatch({ type: 'user', payload: {userName} })
-            } catch(error) {
-
+    signUp: (newUser) => {
+        return async (dispatch, getState) => {
+            let response = await axios.post("http://localhost:4000/api/auth/signUp", {...newUser})
+            if (response.data.success){
+                dispatch({type: "LOGGED", payload: response.data.response})
             }
+            else {
+                console.log(response.data.errors)
+            }
+           return response 
         }
-    }
+    },
 
+    signIn: (signUser) => {
+        return async (dispatch, getState) => {
+            let response = await axios.post("http://localhost:4000/api/user/signIn", {...signUser})
+            if (response.data.success){
+                dispatch({type: "LOGGED", payload: response.data.response})   
+            }
+            else {
+                console.log(response.data.response)
+            }
+            return response
+        }
+    },
 }
+
+export default authActions

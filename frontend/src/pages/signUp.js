@@ -1,16 +1,36 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import authActions from '../redux/actions/authActions';
+import { connect } from 'react-redux'
 
-const SignUp = () => {
+const SignUp = (props) => {
 
   const [ countries, setCountries ] = useState([]);
 
-  useEffect( async () => {
+  useEffect( async ()  => {
     const data = await axios.get('https://restcountries.com/v2/all?fields=name')
     setCountries(data.data)
   }, [])
+
+  const [ newUser, setNewUser ] = useState({
+    userName: "",
+    email: "",
+    password: "",
+    country: ""
+  })
       
-  console.log("counties pa", countries)
+  const inputHandler = e => {
+    console.log(e.target.value)
+    setNewUser({
+      ...newUser,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const submitForm = () => {
+    props.signUp(newUser)
+    console.log(newUser)
+  }
 
         return (
          <div className="bg-form">
@@ -18,18 +38,18 @@ const SignUp = () => {
   <div class="left">
     <h1 className="signUp-title">Sign up</h1>
     
-    <input type="text" name="username" placeholder="Username" />
-    <input type="text" name="email" placeholder="E-mail" />
-    <input type="password" name="password" placeholder="Password" />
-    <input type="password" name="password2" placeholder="Retype password" />
-    <select>
+    <input type="text" onChange={inputHandler} name="userName" placeholder="Username" />
+    <input type="text" onChange={inputHandler} name="email" placeholder="E-mail" />
+    <input type="password" onChange={inputHandler} name="password" placeholder="Password" />
+    <input type="password" onChange={inputHandler} name="password2" placeholder="Retype password" />
+    <select name="country" onChange={inputHandler}>
      {countries.map(country => {
       return <option>{country.name}</option>
     })}
     </select>
     
     
-    <input type="submit" name="signup_submit" value="Sign me up" />
+    <input type="submit" name="signup_submit" onClick={submitForm} value="Sign me up" />
   </div>
   
   <div class="right">
@@ -45,4 +65,14 @@ const SignUp = () => {
         )
 }
 
-export default SignUp
+const mapStateToProps = state => {
+  return {
+    name: state.authReducer.name
+  }
+}
+
+const mapDispatchToProps = {
+  signUp: authActions.signUp
+}
+
+export default connect (mapStateToProps, mapDispatchToProps) (SignUp)
