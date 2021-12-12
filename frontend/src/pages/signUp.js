@@ -40,6 +40,7 @@ const SignUp = (props) => {
     
     <input type="text" onChange={inputHandler} name="userName" placeholder="Username" />
     <input type="text" onChange={inputHandler} name="email" placeholder="E-mail" />
+    <input type="text" onChange={inputHandler} name="userImage" placeholder="URL profile image" />
     <input type="password" onChange={inputHandler} name="password" placeholder="Password" />
     <input type="password" onChange={inputHandler} name="password2" placeholder="Retype password" />
     <select name="country" onChange={inputHandler}>

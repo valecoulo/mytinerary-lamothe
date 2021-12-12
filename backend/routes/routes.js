@@ -7,7 +7,7 @@ const {allCities, oneCity, newCity, deleteCity, modifiedCity} = citiesController
 
 const { allItnieraries, oneItinerary, newItinerary, deleteItinerary, modifiedItinerary, getItineraryByCity } = itinerariesController
 
-const { newUser } = usersController; 
+const { newUser, signIn } = usersController; 
 
 // Cities Controller
 
@@ -36,5 +36,8 @@ Router.route('/itinerarycity/:id')
 
 Router.route('/auth/signUp')
 .post(newUser)
+
+Router.route('/auth/signIn')
+.post(signIn)
 
 module.exports = Router;
