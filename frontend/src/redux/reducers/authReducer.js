@@ -1,10 +1,11 @@
-const authReducer = (state = {name: null, _id: null}, action) => {
+const authReducer = (state = {userName: null,email: null, _id: null}, action) => {
     
     switch(action.type) {
         case "LOGGED": 
             return {
                 ...state, 
-                name: action.payload.name
+                userName: action.payload.userName,
+                email: action.payload.email
             }
         default: 
             return state
