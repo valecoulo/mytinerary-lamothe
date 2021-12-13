@@ -10,9 +10,9 @@ const validator = (req, res, next) => {
         password: joi.string().trim().min(6).required().messages({
             "string.empty": "You must complete the field password"
         }),
-        userImg: joi.string(),
+        userImage: joi.string(),
         country: joi.string(),
-        googleAccount: joi.boolean()
+        google: joi.boolean() 
     })
     const validation = schema.validate(req.body, { abortEarly: false })
     if (!validation.error) {

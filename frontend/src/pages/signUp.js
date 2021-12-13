@@ -6,6 +6,12 @@ import GoogleLogin from 'react-google-login'
 
 const SignUp = (props) => {
 
+useEffect(() => {
+  console.log('props de sign up:', props);
+}, [props])
+  
+
+
   const [countries, setCountries] = useState([]);
 
   useEffect(async () => {
@@ -30,16 +36,15 @@ const SignUp = (props) => {
 
   const responseGoogle = res => {
     let googleUser = {
-      name: res.profileObj.name,
+      userName: res.profileObj.name,
       email: res.profileObj.email,
       password: res.profileObj.googleId,
       country: 'Argentina',
       google: true
     }
     props.signUp(googleUser)
-    
-     
-    // console.log(response)
+        .then((response) => response.data.success)
+        .catch((error) => console.log(error))
   }
 
 
@@ -59,7 +64,6 @@ const SignUp = (props) => {
           <input type="text" onChange={inputHandler} name="email" placeholder="E-mail" />
           <input type="text" onChange={inputHandler} name="userImage" placeholder="URL profile image" />
           <input type="password" onChange={inputHandler} name="password" placeholder="Password" />
-          <input type="password" onChange={inputHandler} name="password2" placeholder="Retype password" />
           <select name="country" onChange={inputHandler}>
             {countries.map(country => {
               return <option>{country.name}</option>
@@ -87,9 +91,9 @@ const SignUp = (props) => {
 }
 
 const mapStateToProps = state => {
-  return {
-    name: state.authReducer.name
-  }
+  return {     
+    userName: state.authReducer.userName     
+  }     
 }
 
 const mapDispatchToProps = {

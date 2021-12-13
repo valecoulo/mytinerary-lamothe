@@ -8,7 +8,7 @@ const authActions = {
                 dispatch({type: "LOGGED", payload: response.data.response})
             }
             else {
-                console.log(response.data.errors)
+                alert(response.data.errors.map(error => error.message))
             }
            return response 
         }
@@ -24,6 +24,11 @@ const authActions = {
                 console.log(response.data.errors)
             }
             return response
+        }
+    },
+    signOutUser : () => {
+        return(dispatch, getState) => {
+            dispatch({type:"LOG_OUT_USER"})
         }
     },
 }
