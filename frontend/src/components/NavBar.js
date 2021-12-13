@@ -10,12 +10,13 @@ const NavBar = (props) => {
   <Navbar bg="dark" className="sticky-top" expand="lg">
         <Container>
           <div className="d-flex">
-          <img className="rounded-circle img-fluid ms-3" width="45px" src="https://i.imgur.com/iDR677a.png" alt="user_pic"/>
+            {props.userImage ? <><img className="rounded-circle img-fluid ms-3" width={50} src={props.userImage} /></> : <> <img className="rounded-circle img-fluid ms-3" width="45px" src="https://i.imgur.com/331h090.png" alt="user_pic"/></>}
+         
           
           <NavDropdown id="basic-nav-dropdown">
           {props.userName ?
           <>
-           <a className="signOut link-dark"onClick={()=> props.signOutUser()}> Sign out</a>
+           <a className="signOut link-dark signout-drop"onClick={()=> props.signOutUser()}> Sign out</a>
           </>
            :
            <>
@@ -27,7 +28,7 @@ const NavBar = (props) => {
             }
           </NavDropdown>
           
-              <h5 className="text-light"> Hi {props.userName}</h5>
+              <h5 className="text-light d-flex justify-content-center align-items-center"> {props.userName ?<>Hi {props.userName}</> : ''} </h5>
               </div>
 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

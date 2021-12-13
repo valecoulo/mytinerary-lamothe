@@ -1,5 +1,5 @@
 const authReducer = (state = {userName: null,email: null, _id: null, userImage: null}, action) => {
-    
+    console.log('reduceraction:',action)
     switch(action.type) {
         case "LOGGED": 
             return {

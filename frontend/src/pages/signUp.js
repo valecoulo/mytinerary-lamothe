@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import authActions from '../redux/actions/authActions';
-import { connect } from 'react-redux'
-import GoogleLogin from 'react-google-login'
+import { connect } from 'react-redux';
+import GoogleLogin from 'react-google-login';
+import Swal from 'sweetalert2';
 
 const SignUp = (props) => {
 
@@ -23,7 +24,22 @@ useEffect(() => {
     userName: "",
     email: "",
     password: "",
-    country: ""
+    country: "",
+    userImage: ""
+  })
+
+  const [ errorInput, setErrorInput ] = useState({})
+
+  const Alert = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: toast => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
   })
 
   const inputHandler = e => {
@@ -50,20 +66,59 @@ useEffect(() => {
 
 
   const submitForm = () => {
-    props.signUp(newUser)
-    console.log(newUser)
+    let info = Object.values(newUser).some(infoUser => infoUser === '')
+    if(info) {
+      Alert.fire({
+        icon: 'error',
+        title: 'There are fields incomplete, please complete them'
+      })
+    } else {
+      props.signUp(newUser)
+      .then(response => {
+        if(response.data.success) {
+          Alert.fire({
+            icon: 'success',
+            title: 'Your account has been created!'
+          })
+        } else if (response.data.errors) {
+          setErrorInput({})
+          response.data.errors.map(error => setErrorInput(messageError => {
+            return {
+              ...messageError,
+              [error.path]: error.message
+            }
+          }))
+        } else {
+          Alert.fire({
+            icon: 'error',
+            title: 'That email has already been used! Try with another one'
+          })
+        }
+      })
+      .catch(error => {
+        console.log(error)
+        Alert.fire({
+          icon: 'error',
+          title: 'We are having technicas difficulties! Come back later!'
+        })
+      })
+    }
   }
 
   return (
     <div className="bg-form">
       <div id="login-box">
+        <div className='left-right'>
         <div class="left">
           <h1 className="signUp-title">Sign up</h1>
 
           <input type="text" onChange={inputHandler} name="userName" placeholder="Username" />
+          <p>{errorInput.userName}</p>
           <input type="text" onChange={inputHandler} name="email" placeholder="E-mail" />
-          <input type="text" onChange={inputHandler} name="userImage" placeholder="URL profile image" />
+          <p>{errorInput.email}</p>
+          <input type="url" onChange={inputHandler} name="userImage" placeholder="URL profile image" />
           <input type="password" onChange={inputHandler} name="password" placeholder="Password" />
+          <p>{errorInput.password}</p>
           <select name="country" onChange={inputHandler}>
             {countries.map(country => {
               return <option>{country.name}</option>
@@ -72,19 +127,21 @@ useEffect(() => {
 
 
           <input type="submit" name="signup_submit" onClick={submitForm} value="Sign me up" />
-        </div>
 
-        <div class="right">
-        <GoogleLogin
+            <h4 className="or-google">or</h4>
+
+          <GoogleLogin
             clientId="1088157262762-o76vtl98u7qkdvdbo2q2joeaslnft665.apps.googleusercontent.com"
             buttonText="Sign up with google"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             cookiePolicy={'single_host_origin'}
-            class="social-signin google"
+            className= "google-button"
           />
         </div>
-        <div class="or">OR</div>
+
+       
+        </div>
       </div>
     </div>
   )

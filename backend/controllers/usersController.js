@@ -12,7 +12,7 @@ const usersController = {
             let repeatedUser = await User.findOne({ email })
             if (repeatedUser) throw new Error
             await newUser.save()
-            res.json({ success: true, response: { userName: newUser.userName, _id: newUser._id, email: newUser.email }, error: null })
+            res.json({ success: true, response: { userName: newUser.userName, _id: newUser._id, email: newUser.email, userImage: newUser.userImage }, error: null })
         } catch (error) {
             res.json({ success: false, response: error.message })
         }
@@ -24,7 +24,7 @@ const usersController = {
             if (!savedUser) throw new Error('Email and/or password incorrect')
             let match = bcryptjs.compareSync(password, savedUser.password)
             if (!match) throw new Error('Email and/or password incorrect')
-            res.json({ success: true, response: { userName: savedUser.userName } })
+            res.json({ success: true, response: { userName: savedUser.userName, userImage: savedUser.userImage } })
             console.log(savedUser)
         } catch (error) {
             res.json({ success: false, response: error.message })

@@ -623,9 +623,9 @@ span i:hover{
 
 #login-box {
   position: relative;
-  width: 600px;
+  width: 35vw;
   top: 20%;
-  height: 50vh;
+  height: 60vh;
   margin: auto;
   background: #FFF;
   border-radius: 2px;
@@ -633,9 +633,7 @@ span i:hover{
 }
 
 .left {
-  position: absolute;
-  top: 0;
-  left: 0;
+  margin: auto;
   box-sizing: border-box;
   padding: 40px;
   width: 300px;
@@ -690,6 +688,7 @@ input[type="password"]:focus {
 
 input[type="submit"] {
   margin-top: 5px;
+  margin-bottom: 8%;
   width: 120px;
   height: 32px;
   background: #000;
@@ -787,6 +786,24 @@ button.social-signin.google {
   background: #DD4B39;
 }
 
+            
+            
+.google-button {
+  margin: 25% 0%;
+}
+
+.or-google {
+  margin: auto;
+  position: relative;
+  top: 4%;
+  background-color: gray;
+  color: black;
+  width: 14%;
+  height: 10%;
+  padding-left: 1%;
+  border-radius: 50%;
+}
+
 /* FINISH CSS SIGN UP */
 
 /* CSS SIGN IN  */
@@ -817,7 +834,28 @@ button.social-signin.google {
   font-size: 28px;
 }
 
+#login-boxsigin {
+  position: relative;
+  width: 20vw;
+  top: 20%;
+  height: 40vh;
+  margin: auto;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
 /* FINISH CSS SIGN IN  */
+
+.signout-drop {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+.signout-drop:hover {
+    color: gray;
+    cursor: pointer;
+}
 
 
 /* Media Queries */
@@ -923,6 +961,11 @@ button.social-signin.google {
 
   .span-hashtag {
     display: none;
+  }
+
+  #login-box {
+    width: 40vh;
+    margin: auto;
   }
 
 }
