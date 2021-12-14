@@ -15,6 +15,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import authActions from './redux/actions/authActions'
 import {useEffect} from 'react'
 import {connect} from 'react-redux'
+import { Navigate } from "react-router-dom";
 
 
 
@@ -38,8 +39,9 @@ function App(props) {
       <Routes>
         <Route path="/"  element={<Home />} exact />
         <Route path="/cities" element={<Cities />} />
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/signIn" element={<SignIn />}/>
+        {!props.userName && (<Route path="/signUp" element={<SignUp/>}/>)}
+        <Route path="*" element={<Navigate to="/"/>} />
         <Route path="/city/:id" element={<CityPage />} />
       </Routes>
         <Footer />
@@ -50,7 +52,8 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return{
-      token: state.authReducer.token
+      token: state.authReducer.token,
+      userName: state.authReducer.userName
   }
 }
 const mapDispatchToProps = {

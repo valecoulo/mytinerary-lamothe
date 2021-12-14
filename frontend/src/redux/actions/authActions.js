@@ -41,10 +41,10 @@ const authActions = {
                         Authorization: `Bearer ${token}`,
                         }
                 })
-                dispatch({type:"LOG_USER", payload:{token, userName:response.data.userName, userImage: response.data.userImage}})   
+                dispatch({type:"LOGGED", payload:{token, userName:response.data.userName, userImage: response.data.userImage}})   
             }catch(error) {
                 console.log(error)
-               return  dispatch({type:'LOG_OUT' })
+               return  dispatch({type:'LOG_OUT_USER' })
             }
         }
     }

@@ -623,9 +623,9 @@ span i:hover{
 
 #login-box {
   position: relative;
-  width: 35vw;
+  width: 50%;
   top: 20%;
-  height: 60vh;
+  height: 72%;
   margin: auto;
   background: #FFF;
   border-radius: 2px;
@@ -787,7 +787,8 @@ button.social-signin.google {
 }
             
 .google-button {
-  margin: 25% 0%;
+  /* margin: 25% 0%; */
+  margin: 9% 0;
 }
 
 .or-google {
@@ -798,9 +799,31 @@ button.social-signin.google {
   color: black;
   width: 14%;
   height: 10%;
-  padding-left: 1%;
+  /* padding-left: 1%; */
   border-radius: 50%;
+  text-align: center;
 }
+
+.have-an-account {
+  text-align: center;
+}
+
+.url-input {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+
 
 /* FINISH CSS SIGN UP */
 
@@ -834,12 +857,13 @@ button.social-signin.google {
 
 #login-boxsigin {
   position: relative;
-  width: 20vw;
+  width: 35%;
   top: 20%;
-  height: 40vh;
+  height: 50%;
   margin: auto;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  background-color: white;
 }
 
 /* FINISH CSS SIGN IN  */
@@ -904,6 +928,10 @@ button.social-signin.google {
   .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl { 
     justify-content: space-between;
   }
+
+  #login-boxsigin { 
+    width: 60%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -922,6 +950,10 @@ button.social-signin.google {
       display: flex;
       justify-content: center;
       align-items: flex-end;
+  }
+
+  #login-boxsigin { 
+    width: 35%;
   }
 }
 
@@ -964,6 +996,10 @@ button.social-signin.google {
   #login-box {
     width: 40vh;
     margin: auto;
+  }
+
+  #login-boxsigin { 
+    width: 90%;
   }
 
 }

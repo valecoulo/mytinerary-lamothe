@@ -135,7 +135,7 @@ useEffect(() => {
           <p className='text-danger'>{errorInput.userName}</p>
           <input type="text" onChange={inputHandler} name="email" placeholder="E-mail" />
           <p className="text-danger">{errorInput.email}</p>
-          <input type="url" onChange={inputHandler} name="userImage" placeholder="URL profile image" />
+          <input type="url" className="url-input" onChange={inputHandler} name="userImage" placeholder="URL profile image" />
           <input type="password" onChange={inputHandler} name="password" placeholder="Password" />
           <p className="text-danger">{errorInput.password}</p>
           <select name="country" onChange={inputHandler}>
@@ -157,9 +157,9 @@ useEffect(() => {
             cookiePolicy={'single_host_origin'}
             className= "google-button"
           />
+        <p className="have-an-account">Already have an account? <Link to="/signIn">Sign in here</Link></p>
         </div>
 
-        <p>Already have an account? <Link to="/signIn">Sign in here</Link></p>
 
        
         </div>

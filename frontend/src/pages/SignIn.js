@@ -119,7 +119,7 @@ useEffect(() => {
             cookiePolicy={'single_host_origin'}
             className= "google-button"
           />
-          <p>You dont have an account?<Link to="/signUp">Sign Up here!</Link></p>
+          <p className="have-an-account">You dont have an account?<Link to="/signUp">Sign Up here!</Link></p>
                     </div>
                 </div>
             </div>
