@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions'
 import Swal from 'sweetalert2';
+import GoogleLogin from 'react-google-login'
+import {Link} from 'react-router-dom'
 
 
 const SignIn = (props) => {
@@ -67,6 +69,34 @@ useEffect(() => {
         }
     }
 
+    const responseGoogle = (res) => {
+        let googleUser = {
+            email: res.profileObj.email, 
+            password: res.profileObj.googleId,
+            userImage: res.profileObj.imageUrl,
+            google: true,
+        }
+        props.signIn(googleUser)
+        .then((response) => {
+            if (response.data.success){
+                Alert.fire({
+                    icon: 'success',
+                     title: 'Welcome back!'
+                  })
+            }
+            else{
+            setErrorInput(response.data.error)
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+            Alert.fire({
+                icon: 'error',
+                title: 'You have to sign up before you log in!'
+              })
+        })
+    }
+
 
 
 
@@ -81,6 +111,15 @@ useEffect(() => {
                         <input onChange={inputHandler} type="text" name="email" placeholder="E-mail" />
                         <input onChange={inputHandler} type="password" name="password" placeholder="Password" />
                         <input type="submit" onClick={submitForm} name="signup_submit" value="Sign in" />
+                        <GoogleLogin
+            clientId="1088157262762-o76vtl98u7qkdvdbo2q2joeaslnft665.apps.googleusercontent.com"
+            buttonText="Sign up with google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+            className= "google-button"
+          />
+          <p>You dont have an account?<Link to="/signUp">Sign Up here!</Link></p>
                     </div>
                 </div>
             </div>

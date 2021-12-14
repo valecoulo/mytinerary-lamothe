@@ -4,6 +4,7 @@ import authActions from '../redux/actions/authActions';
 import { connect } from 'react-redux';
 import GoogleLogin from 'react-google-login';
 import Swal from 'sweetalert2';
+import {Link} from 'react-router-dom'
 
 const SignUp = (props) => {
 
@@ -51,16 +52,34 @@ useEffect(() => {
   }
 
   const responseGoogle = res => {
+    console.log("google:" +  res)
     let googleUser = {
       userName: res.profileObj.name,
       email: res.profileObj.email,
       password: res.profileObj.googleId,
       country: 'Argentina',
-      google: true
+      google: true,
+      userImage: res.profileObj.imageUrl
     }
     props.signUp(googleUser)
-        .then((response) => response.data.success)
-        .catch((error) => console.log(error))
+    .then((response) => {
+      if (response.data.success){
+          Alert.fire({
+              icon: 'success',
+               title: 'Your account has been created!'
+            })
+      }
+      else{
+      setErrorInput(response.data.error)
+      }
+  })
+  .catch((error) => {
+      console.log(error)
+      Alert.fire({
+          icon: 'error',
+          title: 'Something went wrong! Come back later!'
+        })
+  })
   }
 
 
@@ -99,7 +118,7 @@ useEffect(() => {
         console.log(error)
         Alert.fire({
           icon: 'error',
-          title: 'We are having technicas difficulties! Come back later!'
+          title: 'We are facing technical difficulties! Come back later!'
         })
       })
     }
@@ -113,12 +132,12 @@ useEffect(() => {
           <h1 className="signUp-title">Sign up</h1>
 
           <input type="text" onChange={inputHandler} name="userName" placeholder="Username" />
-          <p>{errorInput.userName}</p>
+          <p className='text-danger'>{errorInput.userName}</p>
           <input type="text" onChange={inputHandler} name="email" placeholder="E-mail" />
-          <p>{errorInput.email}</p>
+          <p className="text-danger">{errorInput.email}</p>
           <input type="url" onChange={inputHandler} name="userImage" placeholder="URL profile image" />
           <input type="password" onChange={inputHandler} name="password" placeholder="Password" />
-          <p>{errorInput.password}</p>
+          <p className="text-danger">{errorInput.password}</p>
           <select name="country" onChange={inputHandler}>
             {countries.map(country => {
               return <option>{country.name}</option>
@@ -132,13 +151,15 @@ useEffect(() => {
 
           <GoogleLogin
             clientId="1088157262762-o76vtl98u7qkdvdbo2q2joeaslnft665.apps.googleusercontent.com"
-            buttonText="Sign up with google"
+            buttonText="Sign in with google"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             cookiePolicy={'single_host_origin'}
             className= "google-button"
           />
         </div>
+
+        <p>Already have an account? <Link to="/signIn">Sign in here</Link></p>
 
        
         </div>

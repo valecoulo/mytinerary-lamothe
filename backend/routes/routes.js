@@ -3,12 +3,13 @@ const citiesController = require('../controllers/citiesController');
 const itinerariesController = require('../controllers/itinerariesController');
 const usersController = require('../controllers/usersController');
 const validator = require('../controllers/validator'); 
+const passport = require('../config/passport');
 
 const {allCities, oneCity, newCity, deleteCity, modifiedCity} = citiesController
 
 const { allItnieraries, oneItinerary, newItinerary, deleteItinerary, modifiedItinerary, getItineraryByCity } = itinerariesController
 
-const { newUser, signIn } = usersController; 
+const { newUser, signIn, verifyToken } = usersController; 
 
 // Cities Controller
 
@@ -40,5 +41,8 @@ Router.route('/auth/signUp')
 
 Router.route('/auth/signIn')
 .post(signIn)
+
+Router.route('/verifytoken')
+.get(passport.authenticate('jwt', {session:false}), verifyToken)
 
 module.exports = Router;

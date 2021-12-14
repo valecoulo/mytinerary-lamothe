@@ -12,10 +12,25 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/signUp'
 import CityPage from './pages/CityPage'
 import ScrollToTop from "./components/ScrollToTop";
+import authActions from './redux/actions/authActions'
+import {useEffect} from 'react'
+import {connect} from 'react-redux'
 
 
 
-function App() {
+
+function App(props) {
+
+  console.log('app',props);
+
+  useEffect(()=>{
+    const { signInUserLS} = props
+    if(localStorage.getItem('token')){
+        signInUserLS(localStorage.getItem('token'))
+        console.log(localStorage.getItem('token'))
+    }
+  },[])
+
   return (
     <BrowserRouter>
         <ScrollToTop/>
@@ -33,4 +48,13 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return{
+      token: state.authReducer.token
+  }
+}
+const mapDispatchToProps = {
+  signInUserLS: authActions.signInUserLS
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

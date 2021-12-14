@@ -9,7 +9,7 @@ const authActions = {
                 dispatch({type: "LOGGED", payload: response.data.response})
             }
             else {
-                alert(response.data.errors.map(error => error.message))
+                console.log(response.data.errors.map(error => error.message))
             }
            return response 
         }
@@ -32,7 +32,22 @@ const authActions = {
         return(dispatch, getState) => {
             dispatch({type:"LOG_OUT_USER"})
         }
-    },
+    }, 
+    signInUserLS: (token) => {
+        return async (dispatch, getState) => {
+            try{
+                const response = await axios.get('http://localhost:4000/api/verifytoken', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        }
+                })
+                dispatch({type:"LOG_USER", payload:{token, userName:response.data.userName, userImage: response.data.userImage}})   
+            }catch(error) {
+                console.log(error)
+               return  dispatch({type:'LOG_OUT' })
+            }
+        }
+    }
 }
 
 export default authActions

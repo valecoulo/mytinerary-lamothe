@@ -10,14 +10,13 @@ const NavBar = (props) => {
   <Navbar bg="dark" className="sticky-top" expand="lg">
         <Container>
           <div className="d-flex">
-            {props.userImage ? <><img className="rounded-circle img-fluid ms-3" width={50} src={props.userImage} /></> : <> <img className="rounded-circle img-fluid ms-3" width="45px" src="https://i.imgur.com/331h090.png" alt="user_pic"/></>}
+            {props.token ? <><img className="rounded-circle img-fluid ms-3" width={50} src={props.userImage} /></> : <> <img className="rounded-circle img-fluid ms-3" width="45px" src="https://i.imgur.com/331h090.png" alt="user_pic"/></>}
          
-          
           <NavDropdown id="basic-nav-dropdown">
-          {props.userName ?
+          {props.token ?
           <>
            <a className="signOut link-dark signout-drop"onClick={()=> props.signOutUser()}> Sign out</a>
-          </>
+          </> 
            :
            <>
             <Link to="/signIn" className="text-decoration-none"> <NavDropdown.Item href="#action/3.1">Sign In</NavDropdown.Item> </Link>
