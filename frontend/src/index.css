@@ -883,22 +883,62 @@ button.social-signin.google {
 
 .bg-cardCity {
   background-color: white;
-  width: 50vw;
-  height: 50vh;
-  gap: 5%;
-  margin: 5% 0 auto;
+  width: 70vw;
+  opacity: 0.9;
+  margin: 8% 0 auto;
   display: flex;
   flex-direction: column;
   padding: 4%;
+  border-radius: 1%;
 }
 
 .author-img {
   width: 10vw;
   border-radius: 50%;
+  margin-bottom: 3%;
+}
+
+.accordion-item:first-of-type .accordion-button {
+  background-color: orange; 
+}
+
+span {
+ font-family: 'Quicksand', sans-serif;;
+}
+
+.bg-cardCity h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
 }
 
 .accordion-city {
+  margin-top: 3%;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black;
+}
+
+
+.accordion-button:focus {
+  border-color: orange;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button::after  {
+  /* background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e); */
+}
+
+.accordion-button:not(.collapsed)::after {
   
+}
+
+.logo-card {
+  width: 20vw;
 }
 
 /* FIN CSS VANILA  */
