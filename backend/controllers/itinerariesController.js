@@ -14,8 +14,6 @@ const itinerariesController = {
     res.json({ response: itinerary })
     },
     oneItinerary: async(req, res) => {
-      console.log('entre a la city pa')
-      console.log(req.params)
         let itinerary
         const id = req.params.id        
         try{

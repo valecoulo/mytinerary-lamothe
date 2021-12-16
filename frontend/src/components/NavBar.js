@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import authActions from '../redux/actions/authActions';
 
 const NavBar = (props) => {
-  console.log('navbar:',props)
     return (
   <Navbar bg="dark" className="sticky-top" expand="lg">
         <Container>

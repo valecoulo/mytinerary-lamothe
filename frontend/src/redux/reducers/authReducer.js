@@ -1,6 +1,5 @@
 const authReducer = (state = {userName: null,email: null, _id: null, userImage: null, token: null}, action) => {
-    console.log('action:' ,action)
-
+    
     switch(action.type) {
         case "LOGGED": 
         localStorage.setItem('token', action.payload.token);

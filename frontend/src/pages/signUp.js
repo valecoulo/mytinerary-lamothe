@@ -8,12 +8,6 @@ import {Link} from 'react-router-dom'
 
 const SignUp = (props) => {
 
-useEffect(() => {
-  console.log('props de sign up:', props);
-}, [props])
-  
-
-
   const [countries, setCountries] = useState([]);
 
   useEffect(async () => {

@@ -15,9 +15,6 @@ const CityPage = (props) => {
         props.getOneItinerary(params.id)
     }, [])
 
-
-    console.log("objeto a imprimir:",props.itineraries)
-
     return (
         <div className="background_city">
         <div className="container-fluid d-flex flex-column align-items-center gap-5">
@@ -35,9 +32,6 @@ const CityPage = (props) => {
             </div> )
             }
             
-            {/* <h2 className="text-light mb-5 mt-5">UNDER CONSTRUCTION</h2> */}
-
-
         <h2 className="mt-5 text-light text-capitalize text-truncate">Join us in this wonderfull adventure</h2>
         </div>
             { props.itineraries.length > 0 ?

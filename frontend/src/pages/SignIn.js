@@ -9,11 +9,6 @@ import {Link} from 'react-router-dom'
 
 const SignIn = (props) => {
 
-useEffect(() => {
-    console.log("nameprops:",props)
-}, [props])
-
-
     const [signUser, setSignUser] = useState ({
         email: "", 
         password: "",
@@ -102,7 +97,6 @@ useEffect(() => {
 
         return (
             <>
-            {/* <h1 className="text-light">Welcome {props.userName}</h1> */}
             <div className="bg-signin">
                 <div id="login-boxsigin">
                     <div class="container-form-signin">

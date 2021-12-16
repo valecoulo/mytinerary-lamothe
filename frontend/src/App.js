@@ -22,8 +22,6 @@ import { Navigate } from "react-router-dom";
 
 function App(props) {
 
-  console.log('app',props);
-
   useEffect(()=>{
     const { signInUserLS} = props
     if(localStorage.getItem('token')){
