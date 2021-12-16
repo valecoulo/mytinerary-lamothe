@@ -359,7 +359,8 @@ span i:hover{
   --uismLinkDisplay: var(--smLinkDisplay, inline-flex);
   display: var(--uismLinkDisplay);
   color: #000;
-  outline: solid  2px #000;
+  font-weight: bold;
+  outline: solid  2px whitesmoke;
   position: relative;
   transition-duration: 0.4s;
   overflow: hidden;
@@ -523,6 +524,38 @@ span i:hover{
   -webkit-line-clamp: 3;
   overflow: hidden;
 }    
+
+.iconoBilletes {
+  width: 4rem;
+  font-family: 'Noto Serif', serif;
+
+}
+
+.durationicon {
+  width: 2.5rem;
+  font-family: 'Noto Serif', serif;
+
+}
+
+.likeicon {
+  width: 1.5rem;
+  gap: 5%;
+  font-family: 'Noto Serif', serif;
+
+}
+
+.viewCard {
+  margin: 0 40%;
+  font-family: 'Noto Serif', serif;
+}
+
+.fontcardcity {
+  font-family: 'Noto Serif', serif;
+}
+
+.authorName {
+  font-family: 'Noto Serif', serif;
+}
 
  /* FIN CARD CITY CSS */
 
