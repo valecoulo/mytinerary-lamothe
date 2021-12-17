@@ -29,7 +29,7 @@ const CardCity = (props) => {
                 return <img src="https://i.imgur.com/gFF5QNr.png" key={index} className='durationicon' />
         })}</span>
         <span className='fs-5 fontcardcity'>Price: {[...Array(price)].map((cash, index) => {
-                            return <img src="https://i.imgur.com/QKBUbfC.jpg" className="iconoBilletes" key={index} alt="money"/>
+                            return <img src="https://i.imgur.com/6U25xlJ.png" className="iconoBilletes" key={index} alt="money"/>
                         })}</span>
         <span className='fs-5 likeicon'>Likes: <a className='p-2 '>{likeIcon}</a>  {likes}</span>
         <span className='fs-5 fontcardcity'>{hashtags.map(hash => <span className='fontcardcity'>{hash}</span>)}</span>

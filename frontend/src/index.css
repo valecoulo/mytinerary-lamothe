@@ -915,7 +915,8 @@ button.social-signin.google {
 /* CARD CSS VANILA */
 
 .bg-cardCity {
-  background-color: white;
+  background-image: url(https://i.imgur.com/fa5qnkn.jpg);
+  background-position: inherit;
   width: 70vw;
   opacity: 0.9;
   margin: 8% 0 auto;
@@ -932,7 +933,7 @@ button.social-signin.google {
 }
 
 .accordion-item:first-of-type .accordion-button {
-  background-color: orange; 
+  background-color: aliceblue; 
 }
 
 span {
