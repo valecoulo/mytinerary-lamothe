@@ -528,7 +528,7 @@ span i:hover{
 .iconoBilletes {
   width: 4rem;
   font-family: 'Noto Serif', serif;
-
+  margin: 0 2%;
 }
 
 .durationicon {

@@ -1,10 +1,11 @@
-import CardCity from '../components/CardCity'
+import CardCity from '../components/ItineraryCard'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import BackToCIties from '../components/BackToCities';
 import { connect } from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions';
 import itinerariesAction from '../redux/actions/itinerariesActions';
+import activitiesActions from '../redux/actions/activitiesActions';
 
 
 const CityPage = (props) => {
@@ -35,8 +36,8 @@ const CityPage = (props) => {
         <h2 className="mt-5 text-light text-capitalize text-truncate">Join us in this wonderfull adventure</h2>
         </div>
             { props.itineraries.length > 0 ?
-            props.itineraries.map(itinerary => {
-            return <CardCity itineraries={itinerary} />
+            props.itineraries.map((itinerary, index) => {
+            return <CardCity key={index} itineraries={itinerary} />
             })
                : <h2 className="text-light d-flex justify-content-center h2-no-iti">This city doesn't have itineraries</h2>}
 
@@ -55,7 +56,8 @@ const mapStateToProps = state => {
   
 const mapDispatchToProps = {
     getOneCity: citiesActions.getOneCity,
-    getOneItinerary: itinerariesAction.getOneItinerary
+    getOneItinerary: itinerariesAction.getOneItinerary,
+    getActivitiesByItinerary: activitiesActions.getActivitiesByItinerary
   }
 
   export default connect(mapStateToProps, mapDispatchToProps)(CityPage)
