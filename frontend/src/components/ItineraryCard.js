@@ -5,27 +5,35 @@ import activitiesActions from '../redux/actions/activitiesActions';
 
 
 const ItineraryCard = (props) => {
-  
+
   const [ activities, setActivities ] = useState([]);
+
+  const [ viewMoreLess, setViewMoreLess ] = useState(true);
   
-
- 
-
   const { price, duration, hashtags, likes } = props.itineraries
-
-  const [viewMoreLess, setViewMoreLess] = useState(true);
 
   const likeIcon = <img className='likeicon' src="https://i.imgur.com/taqHF9a.png" />
 
-  useEffect(() => {
-    props.getActivitiesByItinerary(props.itineraries._id)
-    .then(result => {
-      return setActivities(result)
-    })
-  }, [])
+  const { _id } = props.itineraries
 
-  console.log("impresionActivity", activities.map(activity => activity.activity))
-  
+
+  async function getActivities() {
+    try {
+        let result = await props.getActivitiesByItinerary(_id)
+        if(result) {
+            setActivities(result)
+        }
+    } catch(err) {
+        console.error(err)
+    }
+}
+
+const handlerActivities = () => {
+    setViewMoreLess(!viewMoreLess)
+    getActivities()
+}
+
+
   return (
     <div className='d-flex justify-content-center'>
       <div className="bg-cardCity">
@@ -44,15 +52,18 @@ const ItineraryCard = (props) => {
                         })}</span>
         <span className='fs-5 likeicon'>Likes: <a className='p-2 '>{likeIcon}</a>  {likes}</span>
         <span className='fs-5 fontcardcity'>{hashtags.map(hash => <span className='fontcardcity'>{hash}</span>)}</span>
-        <Accordion className="accordion-city" defaultActiveKey="0">
+        <Accordion className="accordion-city">
           <Accordion.Item eventKey="0">
-            <Accordion.Header onClick={() => setViewMoreLess(!viewMoreLess)} >  {viewMoreLess ? <p className='viewCard'>View Less</p> : <p className='viewCard'>View More</p> }</Accordion.Header>
+            <Accordion.Header onClick={() => handlerActivities()}>{viewMoreLess ? <p className='viewCard'>View More</p> : <p className='viewCard'>View Less</p>}</Accordion.Header>
             <Accordion.Body>
-              {activities.map(activity => {
-                return  <>
-                  <p>{activity.activity}</p>
-                  <img width={200} src={activity.src} />
-                  </>
+              {activities.map((activity, index) => {
+                return  <div key={index} className='d-flex gap-4'>
+                <img width={200} src={activity.src} />
+                <div>
+                <h2>{activity.activityTitle}</h2>
+                <p>{activity.activity}</p>
+                </div>
+                  </div>
               })}
             
             </Accordion.Body>

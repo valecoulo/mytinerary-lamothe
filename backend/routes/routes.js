@@ -12,7 +12,7 @@ const { allItnieraries, oneItinerary, newItinerary, deleteItinerary, modifiedIti
 
 const { newUser, signIn, verifyToken } = usersController; 
 
-const { newActivity, retrieveActivitiesOfOneItinerary } = activitiesController
+const { newActivity, getItineraryActivities } = activitiesController
 
 // Cities Controller
 
@@ -58,7 +58,7 @@ Router.route('/activities')
 .post(newActivity)
 
 Router.route("/activities/:id")
-.get(retrieveActivitiesOfOneItinerary)
+.get(getItineraryActivities)
 
 
 module.exports = Router;

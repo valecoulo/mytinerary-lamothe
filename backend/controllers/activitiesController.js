@@ -10,14 +10,10 @@ const activitiesControllers = {
             res.json({success: false, response: error.message})
         }
     }, 
-    retrieveActivitiesOfOneItinerary: async (req, res) => {
-        try {
-            let itineraryActivities = await Activity.find({itinerary: req.params.id}).populate('itineraryId')
-            console.log("controladorAcitivity:",itineraryActivities);
-            res.json({success: true, response: itineraryActivities})
-        } catch (error) {
-            res.json({success: false, response: error.message})
-        }
+    getItineraryActivities: (req, res) => {
+        Activity.find({itineraryId: req.params.id}).populate('itineraryId')
+        .then(activities => res.json({response:activities}))
+        .catch(err => console.log(err))
     }
 }
 
