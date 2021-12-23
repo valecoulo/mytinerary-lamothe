@@ -5,23 +5,26 @@ import activitiesActions from '../redux/actions/activitiesActions';
 import Comments from './Comments';
 import itinerariesActions from '../redux/actions/itinerariesActions';
 import Swal from 'sweetalert2';
+import {FaRegHeart} from "react-icons/fa"
+import {FaHeart} from "react-icons/fa"
+
+
 
 
 const ItineraryCard = (props) => {
 
-  
   
   const [ activities, setActivities ] = useState([]);
   
   const [ viewMoreLess, setViewMoreLess ] = useState(true);
   
   const { _id, comments,price, duration, hashtags, likes } = props.itineraries
-  
-  const [like, setLike] = useState(true)
 
-  const [itinerariesLikes, setItinerariesLikes] = useState(likes)
+  const { userLogged,itineraries } = props
   
-  let heart = itinerariesLikes.includes(props.userId) ? "https://i.imgur.com/tIXF3Az.png" : "https://i.imgur.com/taqHF9a.png"
+  const [totalLikes, setTotalLikes] = useState([itineraries.likes.length])
+  const [liked, setLiked] = useState(false)
+  
   console.log("propsItinerary:", props);
 
   const Alert = Swal.mixin({
@@ -48,24 +51,22 @@ const ItineraryCard = (props) => {
     }
 }
 
-const likeItinerary = async () => {
-  setLike(false) 
-  if(!props.token) {
-      Alert.fire({
-          icon: 'error',
-           title: 'You must be logged to like this post!'
-        })  
-  }else {
-  let response = await props.likeItinerary(_id, props.token)
-  setItinerariesLikes(response.data.response)
-  } 
-setLike(true)
+const likeItinerary = async()=>{  
+  setLiked(!liked)      
+  setTotalLikes(!liked ? totalLikes + 1 : totalLikes - 1)
+  const response = await props.likeItinerary({userId: userLogged._id, itineraryId: _id})
 }
 
 const handlerActivities = () => {
     setViewMoreLess(!viewMoreLess)
     getActivities()
 }
+
+const notify = (error)=>{
+  Alert.fire(`Must be logged to ${error}!`)
+}
+
+// let heart = liked.includes(props.userId) ? "https://i.imgur.com/tIXF3Az.png" : "https://i.imgur.com/taqHF9a.png"
 
 
   return (
@@ -75,7 +76,10 @@ const handlerActivities = () => {
           <div className="d-flex direction-row align-items-center gap-3">
             <img className='author-img' src={props.itineraries.authorImg} />
             <h3 className="authorName">{props.itineraries.authorName}</h3>
-            <span className='fs-5 likeicon'> <img onClick={likeItinerary}  src={heart} />{likes.length} </span>
+            <span onClick={userLogged ? likeItinerary : () =>notify('Like')} className='fs-5 likeicon'> 
+            <FaRegHeart className={ liked ? "displayNone" : "heart-icon-disliked"} />
+            <FaHeart className={ liked ? "heart-icon" : "displayNone"} /></span>
+            <h3 className='totalLikes'>{totalLikes}</h3>
           </div>
           <img className="logo-card" src="https://i.imgur.com/giAfWMt.png" />
         </div>
@@ -116,7 +120,8 @@ const handlerActivities = () => {
 const mapStateToProps = (state)=>{
   return {
      token: state.authReducer.token,
-     userId: state.authReducer._id
+     userId: state.authReducer._id,
+     userLogged: state.authReducer.user
   }
 }
 

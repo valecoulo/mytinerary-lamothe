@@ -1229,6 +1229,28 @@ span {
 /* FIN CSS COMMENTS */
 
 
+/* CSS LIKES */
+
+.heart-icon-disliked {
+  font-size: 30px;
+  color: black;
+  transition: all .3s ease;
+}
+
+.heart-icon {
+  font-size: 30px;
+  color: red;
+}
+
+.totalikes {
+  position: relative;
+    right: 4px;
+    top: 0.2vh;
+}
+
+/* FIN CSS LIKES */
+
+
 
 /* Media Queries */
 
@@ -1363,6 +1385,10 @@ span {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+  }
+
+  .logo-card {
+    display: none;
   }
 
 }
