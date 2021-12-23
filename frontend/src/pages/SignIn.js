@@ -102,9 +102,9 @@ const SignIn = (props) => {
                     <div class="container-form-signin">
                         <h1 className="h1-signin">Sign in </h1>
 
-                        <input onChange={inputHandler} type="text" name="email" placeholder="E-mail" />
-                        <input onChange={inputHandler} type="password" name="password" placeholder="Password" />
-                        <input type="submit" onClick={submitForm} name="signup_submit" value="Sign in" />
+                        <input className='input-signup' onChange={inputHandler} type="text" name="email" placeholder="E-mail" />
+                        <input className='input-signup' onChange={inputHandler} type="password" name="password" placeholder="Password" />
+                        <input className='input-signup' type="submit" onClick={submitForm} name="signup_submit" value="Sign in" />
                         <GoogleLogin
             clientId="1088157262762-o76vtl98u7qkdvdbo2q2joeaslnft665.apps.googleusercontent.com"
             buttonText="Sign up with google"

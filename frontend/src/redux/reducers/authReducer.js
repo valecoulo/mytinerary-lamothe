@@ -1,4 +1,4 @@
-const authReducer = (state = {userName: null,email: null, _id: null, userImage: null, token: null}, action) => {
+const authReducer = (state = {userName: null,email: null, _id: null, userImage: null, token: null, user: null}, action) => {
     
     switch(action.type) {
         case "LOGGED": 
@@ -10,7 +10,9 @@ const authReducer = (state = {userName: null,email: null, _id: null, userImage: 
                 userName: action.payload.userName,
                 email: action.payload.email,
                 userImage: action.payload.userImage,
-                token: action.payload.token
+                token: action.payload.token,
+                _id: action.payload._id,
+                user: action.payload
         } 
         case "LOG_OUT_USER" :
             localStorage.removeItem('token')
@@ -20,7 +22,8 @@ const authReducer = (state = {userName: null,email: null, _id: null, userImage: 
                 token:null,
                 userName:null,
                 userImage:null,
-                _id:null
+                _id:null,
+                user: null
             }
 
         default: 

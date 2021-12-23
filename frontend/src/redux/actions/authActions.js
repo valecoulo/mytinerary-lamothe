@@ -29,19 +29,19 @@ const authActions = {
         }
     },
     signOutUser : () => {
-        return(dispatch, getState) => {
+        return(dispatch) => {
             dispatch({type:"LOG_OUT_USER"})
         }
     }, 
     signInUserLS: (token) => {
-        return async (dispatch, getState) => {
+        return async (dispatch) => {
             try{
                 const response = await axios.get('http://localhost:4000/api/verifytoken', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                         }
                 })
-                dispatch({type:"LOGGED", payload:{token, userName:response.data.userName, userImage: response.data.userImage}})   
+                dispatch({type:"LOGGED", payload:{token, userName:response.data.userName, userImage: response.data.userImage, _id: response.data._id}})   
             }catch(error) {
                 console.log(error)
                return  dispatch({type:'LOG_OUT_USER' })

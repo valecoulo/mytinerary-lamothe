@@ -125,12 +125,12 @@ const SignUp = (props) => {
         <div class="left">
           <h1 className="signUp-title">Sign up</h1>
 
-          <input type="text" onChange={inputHandler} name="userName" placeholder="Username" />
+          <input type="text" className='input-signup' onChange={inputHandler} name="userName" placeholder="Username" />
           <p className='text-danger'>{errorInput.userName}</p>
-          <input type="text" onChange={inputHandler} name="email" placeholder="E-mail" />
+          <input className='input-signup' type="text" onChange={inputHandler} name="email" placeholder="E-mail" />
           <p className="text-danger">{errorInput.email}</p>
-          <input type="url" className="url-input" onChange={inputHandler} name="userImage" placeholder="URL profile image" />
-          <input type="password" onChange={inputHandler} name="password" placeholder="Password" />
+          <input className='input-signup' type="url" className="url-input" onChange={inputHandler} name="userImage" placeholder="URL profile image" />
+          <input className='input-signup' type="password" onChange={inputHandler} name="password" placeholder="Password" />
           <p className="text-danger">{errorInput.password}</p>
           <select name="country" onChange={inputHandler}>
             {countries.map(country => {

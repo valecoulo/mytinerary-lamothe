@@ -27,13 +27,13 @@ const usersController = {
             const isPassword = bcryptjs.compareSync(password, user.password);
             if (!isPassword) throw new Error ("Email or password incorrect");
             const token = jwt.sign({...user}, process.env.SECRET_KEY)
-            res.json({success: true, response:{token, userName: user.userName, userImage: user.userImage}})
+            res.json({success: true, response:{token, userName: user.userName, userImage: user.userImage, _id: user._id}})
         } catch (error) {
             res.json({success: false, response: error.message})
         }
     },
     verifyToken : (req, res) => {
-        res.json({userName: req.user.userName, userImage:req.user.userImage})
+        res.json({userName: req.user.userName, userImage:req.user.userImage, _id: req.user._id})
     }
 }
 

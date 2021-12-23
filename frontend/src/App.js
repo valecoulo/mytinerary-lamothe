@@ -26,7 +26,6 @@ function App(props) {
     const { signInUserLS} = props
     if(localStorage.getItem('token')){
         signInUserLS(localStorage.getItem('token'))
-        console.log(localStorage.getItem('token'))
     }
   },[])
 

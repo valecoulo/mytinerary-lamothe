@@ -1,4 +1,4 @@
-import CardCity from '../components/ItineraryCard'
+import ItineraryCard from '../components/ItineraryCard'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import BackToCIties from '../components/BackToCities';
@@ -33,11 +33,11 @@ const CityPage = (props) => {
             </div> )
             }
             
-        <h2 className="mt-5 text-light text-capitalize text-truncate">Join us in this wonderfull adventure</h2>
+        <h2 className="mt-5 text-light text-capitalize text-center">Join us in this wonderfull adventure</h2>
         </div>
             { props.itineraries.length > 0 ?
             props.itineraries.map((itinerary, index) => {
-            return <CardCity key={index} itineraries={itinerary} />
+            return <ItineraryCard key={index} itineraries={itinerary} />
             })
                : <h2 className="text-light d-flex justify-content-center h2-no-iti">This city doesn't have itineraries</h2>}
 
