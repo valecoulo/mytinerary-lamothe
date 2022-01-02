@@ -137,7 +137,7 @@ const Comments = (props) => {
                                  />
                                 <IoSend className={isEditingComment ? "sendEditedIcon": "displayNone"} 
                                 onClick={()=>
-                                 sendEditedComment(itineraryId, {commentId: comment.userId, newComment: editedComment})} />
+                                 sendEditedComment(itineraryId, {commentId: comment._id, newComment: editedComment})} />
                              </>
                           )}
                        </div>

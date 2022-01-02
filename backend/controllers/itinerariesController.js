@@ -72,7 +72,6 @@ const itinerariesController = {
    },
 
    addNewComment: async(req, res)=>{
-      console.log("reqcomment:",req.body);
       try {
          var {userId, comment, itineraryId } = req.body
          var userInfo = await User.findOne({_id: userId})
@@ -98,7 +97,7 @@ const itinerariesController = {
          var itineraryToModify = await Itinerary.findOne({_id: itineraryId})
          
          var itineraryModified = await Itinerary.findOneAndUpdate( 
-            {_id: itineraryId, "comments.userId": commentId},  
+            {_id: itineraryId, "comments._id": commentId},  
             {$set: {"comments.$.comment": newComment}},            
             {new: true}
          )      
