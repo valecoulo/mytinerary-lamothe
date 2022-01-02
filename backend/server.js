@@ -14,4 +14,4 @@ app.use(passport.initialize())
 
 app.use('/api', Router)
 
-app.listen(process.env.PORT || 4000, process.env.HOST || '0.0.0.0', () => console.log(`corriendo en el puerto ${process.env.PORT || 4000}`));
+app.listen(process.env.PORT || "4000", () => {console.log(`El server esta en el puerto ${process.env.PORT || "4000"}`);   });
