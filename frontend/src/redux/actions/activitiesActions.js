@@ -4,7 +4,7 @@ const activitiesActions = {
     getActivitiesByItinerary: (itineraryId) => {
         return async () => {
             try {
-                let response = await axios.get(`http://localhost:4000/api/activities/${itineraryId}`)
+                let response = await axios.get(`https://myitinerary-lamothe.herokuapp.com/api/activities${itineraryId}`)
                 let data = response.data.response
                 return data
             } catch (error){
