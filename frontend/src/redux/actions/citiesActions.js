@@ -10,8 +10,9 @@ const citiesActions = {
      },
      getOneCity: (id) => {
         return async (dispatch) => {
-           let response = await axios.get('https://myitinerary-lamothe.herokuapp.com/api/city' + id) 
+           let response = await axios.get('https://myitinerary-lamothe.herokuapp.com/api/city/' + id) 
            let infoCity = response.data.response
+           console.log('infoCity',response)
            dispatch({ type: 'ONE_CITY', payload: infoCity })        
         }
      },

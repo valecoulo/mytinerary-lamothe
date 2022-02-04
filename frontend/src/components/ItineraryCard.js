@@ -96,7 +96,11 @@ const notify = (error)=>{
             <Accordion.Header onClick={() => handlerActivities()}>{viewMoreLess ? <p className='viewCard'>View More</p> : <p className='viewCard'>View Less</p>}</Accordion.Header>
             <Accordion.Body className="body-activity">
               <div className='d-flex flex-column'>
-              {activities.map((activity, index) => {
+              {activities.length === 0 
+              ?
+               <h1>LOADING...</h1> 
+              :
+              activities.map((activity, index) => {
                 return  <div key={index} className='d-flex gap-4 mt-3 contain-activity'>
                 <img width={200} src={activity.src} />
                 <div>
@@ -104,7 +108,8 @@ const notify = (error)=>{
                 <p>{activity.activity}</p>
                 </div>
                   </div>
-              })}
+              })
+              }
               <Comments itineraryId={_id} comments={comments} />
               </div>
             
