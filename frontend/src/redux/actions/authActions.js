@@ -3,7 +3,7 @@ import axios from "axios"
 const authActions = {
     signUp: (newUser) => {
         return async (dispatch, getState) => {
-            let response = await axios.post("http://localhost:4000/api/auth/signUp", {...newUser})
+            let response = await axios.post("https://myitinerary-lamothe.herokuapp.com/api/auth/signUp", {...newUser})
             console.log("actionauth:",response)
             if (response.data.success){
                 dispatch({type: "LOGGED", payload: response.data.response})
@@ -17,7 +17,7 @@ const authActions = {
 
     signIn: (signUser) => {
         return async (dispatch, getState) => {
-            let response = await axios.post("http://localhost:4000/api/auth/signIn", {...signUser})
+            let response = await axios.post("https://myitinerary-lamothe.herokuapp.com/api/auth/signIn", {...signUser})
             console.log("actionauth", response)
             if (response.data.success){
                 dispatch({type: "LOGGED", payload: response.data.response})   
