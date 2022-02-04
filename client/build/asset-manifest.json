@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bf5fbd07.chunk.css",
+    "main.js": "/static/js/main.8ade5242.chunk.js",
+    "main.js.map": "/static/js/main.8ade5242.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.559d78f6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.559d78f6.js.map",
+    "static/css/2.478c36c8.chunk.css": "/static/css/2.478c36c8.chunk.css",
+    "static/js/2.7a0e9831.chunk.js": "/static/js/2.7a0e9831.chunk.js",
+    "static/js/2.7a0e9831.chunk.js.map": "/static/js/2.7a0e9831.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.478c36c8.chunk.css.map": "/static/css/2.478c36c8.chunk.css.map",
+    "static/css/main.bf5fbd07.chunk.css.map": "/static/css/main.bf5fbd07.chunk.css.map",
+    "static/js/2.7a0e9831.chunk.js.LICENSE.txt": "/static/js/2.7a0e9831.chunk.js.LICENSE.txt",
+    "static/media/argentina.jpeg": "/static/media/argentina.20a3a373.jpeg",
+    "static/media/index.css": "/static/media/background_image.a38a4de4.jpeg",
+    "static/media/bogota.jpeg": "/static/media/bogota.d3f0012e.jpeg",
+    "static/media/cairo.jpeg": "/static/media/cairo.997005bb.jpeg",
+    "static/media/cancun.jpeg": "/static/media/cancun.9276cc74.jpeg",
+    "static/media/london.jpeg": "/static/media/london.54c4a90c.jpeg",
+    "static/media/madrid.jpeg": "/static/media/madrid.9636e3ba.jpeg",
+    "static/media/new_york.jpeg": "/static/media/new_york.96e14afa.jpeg",
+    "static/media/paris.jpeg": "/static/media/paris.d8b33c70.jpeg",
+    "static/media/roma.jpeg": "/static/media/roma.b49b4bfd.jpeg",
+    "static/media/sidney.jpeg": "/static/media/sidney.db333b09.jpeg",
+    "static/media/tokio.jpeg": "/static/media/tokio.953ce1af.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.559d78f6.js",
+    "static/css/2.478c36c8.chunk.css",
+    "static/js/2.7a0e9831.chunk.js",
+    "static/css/main.bf5fbd07.chunk.css",
+    "static/js/main.8ade5242.chunk.js"
+  ]
+}
